@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PPM Fails</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗿</text></svg>"
+        />
+
+        <style>
+            * {
+                font-family: "Open Sans";
+                color: white;
+                background: black;
+            }
+
+            body,
+            h1,
+            h2 {
+                margin: 0;
+                padding: 0;
+            }
+
+            header {
+                margin-top: 5vh;
+            }
+
+            .header-text,
+            .subheader-text {
+                text-align: center;
+                font-weight: 300;
+                height: 7.5vh;
+            }
+
+            .embla {
+                overflow: hidden;
+                margin-bottom: 5vh;
+            }
+
+            .embla__container {
+                display: flex;
+                flex-direction: row;
+                height: 75vh;
+            }
+
+            .embla__slide {
+                flex: 0 0 50%;
+                width: fit-content;
+            }
+
+            img {
+                display: block;
+                max-height: 100%;
+                width: min-content;
+                height: auto;
+                margin: 0;
+                padding: 0;
+            }
+
+            @media screen and (max-width: 720px) {
+                .header-text {
+                    height: 15vh;
+                }
+                .subheader-text {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 class="header-text">
+                a record of paramount pain and suffering
+            </h1>
+            <h2 class="subheader-text">even pooh is crying at this point</h2>
+        </header>
+
+        <div class="embla">
+            <div class="embla__container"></div>
+        </div>
+
+        <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+        <script type="text/javascript">
+            function shuffle(array) {
+                let currentIndex = array.length,
+                    randomIndex;
+
+                while (currentIndex != 0) {
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex],
+                        array[currentIndex],
+                    ];
+                }
+
+                return array;
+            }
+
+            let images = [
+                "assets/img/3i1.png",
+                "assets/img/colon-1.png",
+                "assets/img/colon-2.png",
+                "assets/img/don-1.png",
+                "assets/img/emma-1.png",
+                "assets/img/emma-2.png",
+                "assets/img/emma-3.png",
+                "assets/img/emma-4.png",
+                "assets/img/emma-5.png",
+                "assets/img/halfbrit.png",
+                "assets/img/jacob-1.png",
+                "assets/img/jacob-2.png",
+                "assets/img/owen-1.png",
+                "assets/img/sammie-1.png",
+                "assets/img/sammie-2.png",
+                "assets/img/sammie-3.png",
+                "assets/img/ubiq_rice-1.png",
+                "assets/img/ubiq_rice-2.png",
+            ];
+
+            shuffle(images);
+
+            const emblaNode = document.querySelector(".embla");
+            const emblaContainer = document.querySelector(".embla__container");
+
+            images.forEach((image) => {
+                emblaContainer.innerHTML += `
+                <div class="embla__slide">
+                    <img src="${image}" />
+                </div>
+                `;
+            });
+
+            const options = {
+                dragFree: true,
+            };
+
+            const embla = EmblaCarousel(emblaNode, options);
+        </script>
+    </body>
+</html>
